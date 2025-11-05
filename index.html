@@ -3,277 +3,306 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The DUUS Website</title>
-
+  <title>Jake Duus — Rugged & Premium (Variation B)</title>
   <style>
-    /* Reset */
-    * { box-sizing: border-box; margin:0; padding:0; }
-
     :root{
-      --earth:#efe6d8;
-      --accent:#6b4b2f;
-      --accent-2:#c99a59;
-      --muted:#b9a88f;
-      --dark:#0b0b09;
-      --maxwidth:1200px;
+      --bg:#0f0f10;
+      --surface:#151515;
+      --muted:#9b8b7a;
+      --accent:#6b3e20; /* warm brown */
+      --accent-2:#8b5b34;
+      --card:#1b1b1b;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+      --radius:12px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff-body: Georgia, 'Times New Roman', Times, serif;
     }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#0b0b0b);color:#eee;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
 
-    html,body { height:100%; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#111; background:var(--earth); }
+    /* Header / nav */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(10,10,10,0.85), rgba(10,10,10,0.75));border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:var(--glass);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--muted)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white}
+    .nav-links a:hover{color:white}
 
-    /* HERO / FULLSCREEN */
-    .hero-wrap {
-      min-height:92vh;
-      width:100%;
-      display:grid;
-      place-items:center;
-      position:relative;
-      overflow:hidden;
-    }
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh}
+    .container{max-width:var(--max-width);margin:0 auto;padding:40px 20px}
 
-    /* background image */
-    .hero-bg {
-      position:absolute; inset:0;
-      background: center center / cover no-repeat url('hero-bg.jpg');
-      filter: contrast(0.9) saturate(0.9) brightness(0.6);
-      z-index:0;
-    }
+    /* Hero */
+    .hero{border-radius:14px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 12px 30px rgba(0,0,0,0.6);position:relative}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,7,7,0.15), rgba(7,7,7,0.75));display:flex;align-items:center}
+    .hero-inner{display:flex;gap:28px;align-items:center;padding:60px;}
+    .hero-left{flex:1}
+    .hero-left h2{font-size:40px;margin:0 0 10px}
+    .hero-left p{margin:0 0 18px;color:var(--muted);max-width:62ch}
+    .hero-actions{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:10px;font-weight:700}
+    .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-    /* subtle overlay for warm tone */
-    .hero-overlay {
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(11,8,6,0.25), rgba(11,8,6,0.35));
-      z-index:1;
-    }
+    /* Content blocks */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
 
-    /* top logo and menu */
-    header {
-      position:absolute;
-      top:22px;
-      left:0; right:0;
-      z-index:10;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:0 22px;
-      pointer-events:auto;
-    }
+    /* Articles */
+    .articles-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .post{display:flex;gap:14px;background:var(--card);padding:12px;border-radius:10px}
+    .post img{width:150px;height:100px;object-fit:cover;border-radius:8px}
+    .post h4{margin:0}
+    .sidebar .widget{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));padding:12px;border-radius:10px;margin-bottom:12px}
 
-    .logo {
-      margin:0 auto;
-      width:260px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:12px;
-      color:var(--earth);
-      text-align:center;
-      pointer-events:none;
-    }
-    .logo img { height:46px; width:auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.45)); }
-    .logo .title { display:block; font-weight:800; letter-spacing:1px; color:rgba(240,232,220,0.98); font-size:20px; text-transform:uppercase; }
-    .logo .sub { display:block; font-size:11px; color:rgba(240,232,220,0.7); margin-top:2px; }
+    /* About */
+    .bio{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .bio img{width:100%;border-radius:10px}
 
-    /* hamburger */
-    .menu-btn {
-      background: rgba(255,255,255,0.92);
-      border-radius:999px;
-      width:42px;
-      height:42px;
-      display:grid;
-      place-items:center;
-      box-shadow:0 6px 18px rgba(0,0,0,0.35);
-      margin-left:auto;
-      cursor:pointer;
-      border:1px solid rgba(0,0,0,0.06);
-    }
-    .menu-btn span { display:block; width:18px; height:2px; background:#3b2e22; border-radius:2px; box-shadow:0 6px 0 #3b2e22, 0 -6px 0 #3b2e22; }
+    /* Footer */
+    footer{padding:30px 20px;background:#0b0b0b;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);}
+    footer .inner{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
 
-    /* main hero content (centered) */
-    .hero-content {
-      position:relative;
-      z-index:5;
-      width:100%;
-      max-width:var(--maxwidth);
-      padding: 36px 24px;
-      text-align:center;
-      color:var(--earth);
-    }
-
-    .hero-title {
-      font-size:96px;
-      line-height:0.95;
-      font-weight:800;
-      color:#fff;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      margin-bottom:10px;
-      letter-spacing:-2px;
-    }
-    .hero-sub {
-      font-size:20px;
-      color:rgba(255,255,255,0.95);
-      margin-bottom:26px;
-      max-width:900px;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .cta {
-      display:inline-block;
-      background: transparent;
-      border:2px solid rgba(255,255,255,0.85);
-      color:#fff;
-      padding:14px 28px;
-      font-weight:700;
-      border-radius:8px;
-      text-decoration:none;
-      letter-spacing:0.5px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-      transition: all .18s ease;
-    }
-    .cta:hover { transform: translateY(-3px); background: rgba(201,154,89,0.15); border-color: rgba(201,154,89,0.95); }
-
-    /* lower light section with icons */
-    .features {
-      background:var(--earth);
-      padding:44px 18px;
-      display:flex;
-      justify-content:center;
-      border-top:1px solid rgba(0,0,0,0.04);
-    }
-
-    .features-inner {
-      max-width:var(--maxwidth);
-      width:100%;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:28px;
-      text-align:center;
-    }
-    .feature {
-      background:transparent;
-      padding:18px;
-    }
-    .icon {
-      width:72px; height:72px; margin:0 auto 14px auto;
-      display:grid; place-items:center; border-radius:12px;
-      border:2px solid rgba(107,75,47,0.12);
-      color:var(--accent);
-      font-size:28px;
-    }
-    .feature h4 { font-size:18px; color:var(--accent); margin-bottom:8px; font-weight:800; }
-    .feature p { color:var(--muted); font-size:14px; line-height:1.5; }
-
-    /* Articles list area */
-    .articles {
-      max-width:var(--maxwidth);
-      margin:30px auto;
-      padding:18px;
-    }
-    .article-list {
-      display:grid;
-      gap:12px;
-    }
-    .article-card {
-      background:#fff;
-      border-radius:10px;
-      padding:14px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-    .article-card a { color:var(--dark); font-weight:700; text-decoration:none; font-size:16px; }
-    .article-card time { color:var(--muted); font-size:13px; }
-
-    /* responsive */
+    /* Responsive */
     @media (max-width:900px){
-      .hero-title { font-size:44px; }
-      .hero-sub { font-size:16px; padding:0 6px; }
-      .features-inner { grid-template-columns:1fr; }
-      header { padding: 10px 14px; }
-      .logo { width:auto; }
+      .hero-inner{padding:36px;flex-direction:column;align-items:flex-start}
+      .hero-left h2{font-size:28px}
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+      .bio{grid-template-columns:1fr}
+      .articles-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- Use a relative path by default. Upload your logo to assets/jake-duus-logo.png in your repo. -->
+        <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+        <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        <h1>Jake Duus</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#home" data-target="home">Home</a>
+        <a href="#about" data-target="about">About</a>
+        <a href="#articles" data-target="articles">Articles</a>
+        <a class="cta" href="#contact" data-target="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="hero-wrap">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <header>
-      <!-- left spacer to keep logo centered -->
-      <div style="width:44px;"></div>
-
-      <div class="logo" role="banner">
-        <!-- small inline logo - replace with <img src="logo.png" alt=""> if you upload a real logo -->
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='42' viewBox='0 0 120 42'><g fill='%23c99a59'><path d='M4 30 L30 4 L56 30 Z'/></g><text x='58' y='28' font-family='Verdana' font-size='11' fill='%23efe6d8'>LOGO TEXT</text></svg>" alt="logo" />
-        <div style="display:none;">
-          <span class="title">LOGO TEXT HERE</span>
-          <span class="sub">Slogan here</span>
+  <main class="page">
+    <!-- HOME -->
+    <section id="home" class="container section active">
+      <div class="hero" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=60')">
+        <div class="overlay">
+          <div class="hero-inner">
+            <div class="hero-left">
+              <h2>Rugged stories. Practical skills. Honest opinion.</h2>
+              <p class="muted">Tools, land, and life — written by Jake Duus. Hunting. Maintenance. Land stewardship. Straightforward and to-the-point.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#articles" data-target="articles">Read Articles</a>
+                <a class="btn btn-ghost" href="#about" data-target="about">About Jake</a>
+              </div>
+            </div>
+            <div class="hero-right">
+              <!-- small feature card -->
+              <div class="card" style="min-width:260px">
+                <h3>Latest</h3>
+                <p class="muted">A short excerpt from your most recent article. Keep this updated dynamically later.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-<nav style="margin-left:12px;">
-  <a href="index.html" style="margin-right:12px;color:#efe6d8;text-decoration:none;font-weight:700">Home</a>
-  <a href="about.html" style="color:#efe6d8;text-decoration:none;font-weight:700">About</a>
-</nav>
 
-      <button class="menu-btn" title="Menu" aria-label="Open menu">
-        <span></span>
-      </button>
-    </header>
+      <div class="features" style="margin-top:28px">
+        <div class="card">
+          <h3>Field Notes</h3>
+          <p class="muted">Hunting, gear, and what actually works in the field.</p>
+        </div>
+        <div class="card">
+          <h3>Work & Tools</h3>
+          <p class="muted">Fleet, grounds, and hands-on tutorials for keeping things running.</p>
+        </div>
+        <div class="card">
+          <h3>Land Management</h3>
+          <p class="muted">Practical, scripture-grounded stewardship tips you can try this week.</p>
+        </div>
+      </div>
 
-    <div class="hero-content" role="main">
-      <h1 class="hero-title">The DUUS!</h1>
-      <p class="hero-sub">My website! A constant work in progress...</p>
+      <div style="margin-top:28px">
+        <h3>Recent Articles</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:12px">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="post" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+            <h4>Keeping the Gear Sharp</h4>
+            <p class="muted">Practical tips on tool maintenance and how to make them last decades.</p>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=800&q=60" alt="post" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+            <h4>Managing Thick Timber</h4>
+            <p class="muted">A short, actionable plan for young men learning land management.</p>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=60" alt="post" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+            <h4>Fleet & Grounds: Behind the Scenes</h4>
+            <p class="muted">What it takes to keep a campus running — vehicles, schedule, and priorities.</p>
+          </article>
+        </div>
+      </div>
 
-      <a class="cta" href="#articles">Option coming soon</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container section" style="display:none">
+      <div class="hero" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=60')">
+        <div class="overlay">
+          <div class="hero-inner">
+            <div class="hero-left">
+              <h2>About Jake</h2>
+              <p class="muted">A hands-on manager, student, and outdoorsman who prefers simple tools and honest work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px" class="bio">
+        <div>
+          <h3>Short Bio</h3>
+          <p class="muted">Hello — I'm Jake. I manage fleet and grounds, teach, and write about land stewardship, tools, and the life that happens around them. This section is intentionally short and direct. Use it for a quick introduction and a link to a longer biography below.</p>
+          <p class="muted">You can add images, timelines, or downloadable resume content here. The layout will adapt down to mobile cleanly.</p>
+        </div>
+        <div>
+          <img src="assets/sunrise-photo.jpg" alt="Jake portrait">
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section id="articles" class="container section" style="display:none">
+      <div class="hero" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=60')">
+        <div class="overlay">
+          <div class="hero-inner">
+            <div class="hero-left">
+              <h2>Articles</h2>
+              <p class="muted">Long-form/short-form pieces on tools, field notes, and stewardship.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px" class="articles-grid">
+        <div>
+          <div class="post">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60" alt="">
+            <div>
+              <h4>How to Read the Land</h4>
+              <p class="muted">Short excerpt that leads into a full article page.</p>
+            </div>
+          </div>
+          <div class="post" style="margin-top:12px">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="">
+            <div>
+              <h4>Maintaining Campus Vehicles</h4>
+              <p class="muted">Checklist and common pitfalls when managing a fleet.</p>
+            </div>
+          </div>
+          <div class="post" style="margin-top:12px">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60" alt="">
+            <div>
+              <h4>Controlled Burns & Why They Matter</h4>
+              <p class="muted">An introductory primer for land management.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="widget">
+            <h4>About the Author</h4>
+            <p class="muted">Quick bio snippet and a link to the full about page.</p>
+          </div>
+          <div class="widget">
+            <h4>Categories</h4>
+            <ul class="muted" style="padding-left:18px;margin:8px 0">
+              <li>Field Notes</li>
+              <li>Maintenance</li>
+              <li>Land Management</li>
+            </ul>
+          </div>
+          <div class="widget">
+            <h4>Subscribe</h4>
+            <p class="muted">Placeholder for newsletter signup</p>
+          </div>
+        </aside>
+      </div>
+
+    </section>
+
+    <!-- CONTACT (anchor to footer) -->
+    <section id="contact" class="container section" style="display:none">
+      <h3>Contact</h3>
+      <p class="muted">Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>&copy; <span id="year"></span> Jake Duus</div>
+      <div class="muted">Built with a rugged, premium look — Variation B</div>
     </div>
-  </div>
-
-  <!-- features / icons -->
-  <section class="features" aria-labelledby="featuresTitle">
-    <div class="features-inner">
-      <div class="feature">
-        <div class="icon">🦌</div>
-        <h4>???s</h4>
-        <p>???</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🏕️</div>
-        <h4>Something will go here</h4>
-        <p>And here.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔥</div>
-        <h4>Weather updates?</h4>
-        <p>Possibly</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Articles list -->
-  <section id="articles" class="articles" aria-labelledby="articlesHeading">
-    <h3 id="articlesHeading" style="font-size:20px;margin-bottom:12px;color:#2b2b2b;">Articles</h3>
-
-    <div class="article-list">
-      <!-- Edit these list items to match your article files -->
-      <div class="article-card">
-        <a href="article1.html">My First Article</a>
-        <time datetime="2025-10-27">Oct 27, 2025</time>
-      </div>
-
-      <div class="article-card">
-        <a href="article2.html">Article 2</a>
-        <time datetime="2025-10-20">Oct 20, 2025</time>
-      </div>
-    </div>
-  </section>
+  </footer>
 
   <script>
-    // small accessibility: close/open future menu (placeholder)
-    document.querySelector('.menu-btn').addEventListener('click', function(){
-      alert('Menu clicked — you can link this to a navigation or sidebar if you want.');
+    // Simple single-page navigation
+    function showSection(name){
+      document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+      const el = document.getElementById(name);
+      if(el) el.style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    document.querySelectorAll('[data-target]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const t = a.getAttribute('data-target');
+        showSection(t);
+      })
+    })
+    // On load show home
+    showSection('home');
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fallback logo handler: if the image fails to load, replace with an inline SVG data URI
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        // as a last resort, show the fallback div
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.6)';
+      else header.style.boxShadow = '';
     });
   </script>
 </body>
