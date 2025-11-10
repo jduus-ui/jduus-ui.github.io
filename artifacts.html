@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Artifacts - Jake Duus</title>
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --surface:#151515;
+      --muted:#9b8b7a;
+      --accent:#6b3e20; /* warm brown */
+      --accent-2:#8b5b34;
+      --card:#1b1b1b;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+      --radius:12px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff-body: Georgia, 'Times New Roman', Times, serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#0b0b0b);color:#eee;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
+
+    /* Header / nav */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(10,10,10,0.85), rgba(10,10,10,0.75));border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:var(--glass);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--muted)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white}
+    .nav-links a:hover{color:white}
+
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh}
+    .container{max-width:var(--max-width);margin:0 auto;padding:40px 20px}
+
+    /* Hero */
+    .hero{border-radius:14px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 12px 30px rgba(0,0,0,0.6);position:relative}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,7,7,0.15), rgba(7,7,7,0.75));display:flex;align-items:center}
+    .hero-inner{display:flex;gap:28px;align-items:center;padding:60px;}
+    .hero-left{flex:1}
+    .hero-left h2{font-size:40px;margin:0 0 10px}
+    .hero-left p{margin:0 0 18px;color:var(--muted);max-width:62ch}
+    .hero-actions{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:10px;font-weight:700}
+    .btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Content blocks */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition: transform 0.2s, box-shadow 0.2s}
+    .card:hover{transform: translateY(-2px);box-shadow: 0 8px 20px rgba(0,0,0,0.4)}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    /* Footer */
+    footer{padding:30px 20px;background:#0b0b0b;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);margin-top:60px}
+    footer .inner{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-inner{padding:36px;flex-direction:column;align-items:flex-start}
+      .hero-left h2{font-size:28px}
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+    }
+  </style>
+  <style>
+    /* === Full-page background image with dramatic dark overlay === */
+    .bg{position:fixed;inset:0;z-index:-1;background:url('assets/mountain-hero.jpg') center/cover no-repeat fixed}
+    .bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.78)} /* moody overlay */
+
+    /* Make nav links light for contrast */
+    .nav-links a{color:#f1f1f1}
+    .nav-links a:hover{color:#fff}
+
+    /* Semi-transparent front panels */
+    .panel{background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.08)}
+
+    /* Lighten muted text slightly for readability on dark */
+    .muted{color:#d9d3cb}
+
+    /* Darken cards slightly to float above the panel */
+    .card{background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.06)}
+  </style>
+</head>
+<body>
+  <!-- Full-page background image sits behind everything -->
+  <div class="bg"></div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <a href="index.html">
+          <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+          <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        </a>
+        <a href="index.html"><h1>Jake Duus</h1></a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a class="cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="hero panel">
+        <div class="overlay">
+          <div class="hero-inner">
+            <div class="hero-left">
+              <h2>Artifacts</h2>
+              <p class="muted">Projects, tools, and creative works worth sharing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+          
+          <a href="Artifact1.html">
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="Artifact 1" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+              <h3>Artifact 1</h3>
+              <p class="muted">Description of your first artifact. Update this text to describe what this artifact contains.</p>
+            </article>
+          </a>
+
+          <a href="Artifact2.html">
+            <article class="card">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60" alt="Artifact 2" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
+              <h3>Artifact 2</h3>
+              <p class="muted">Description of your second artifact. Update this text to describe what this artifact contains.</p>
+            </article>
+          </a>
+
+        </div>
+      </div>
+
+      <div style="margin-top:40px;padding:24px;background:rgba(0,0,0,0.5);border-radius:12px;border:1px solid rgba(255,255,255,0.06)">
+        <h3>About Artifacts</h3>
+        <p class="muted">This section showcases various projects, tools, and creative works. Each artifact represents a unique contribution or experiment worth sharing. Click on any card above to explore the full artifact.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>&copy; <span id="year"></span> Jake Duus</div>
+      <div class="muted">Built through chaos</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fallback logo handler
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.6)';
+      else header.style.boxShadow = '';
+    });
+  </script>
+</body>
+</html>
