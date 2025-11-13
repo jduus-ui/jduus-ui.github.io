@@ -4,79 +4,167 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Me - Jake Duus</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
   <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f2ee;
-      color: #2c1c10;
-      margin: 0;
-      padding: 0;
+    :root{
+      --accent:#6b3e20;
+      --accent-2:#8b5b34;
+      --max-width:1100px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    header, footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #3d2b1f;
-      color: #fdfaf6;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:#1a1a1a;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
+
+    /* === BACKGROUND IMAGE - Fixed and stretched === */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:url('assets/mountain-background.jpg') center/cover no-repeat fixed;
+      background-size: cover;
     }
-    nav a {
-      color: #fdfaf6;
-      text-decoration: none;
-      margin: 0 0.5rem;
+
+    /* Header / nav - matching homepage */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(8px);background:rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.2)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.2);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px;color:#1a1a1a;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:#2c2c2c;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;text-shadow:none}
+    .nav-links a:hover{color:#000}
+    .nav-links a[aria-current="page"]{color:#000;font-weight:700}
+
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh;padding-bottom:60px}
+    .container{max-width:900px;margin:0 auto;padding:40px 20px}
+
+    /* Content card - transparent with blur */
+    .content-card{
+      background:rgba(255,255,255,0.3);
+      padding:3rem 2.5rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.1);
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: #fffdf8;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+
+    /* Logo styling */
     img.logo {
-      max-width: 250px;
-      margin: 1rem auto 2rem;
+      max-width: 280px;
+      margin: 0 auto 2rem;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      background:rgba(255,255,255,0.5);
+      padding:12px;
     }
+
+    /* Typography */
     h1 {
-      margin-top: 0.5rem;
-      color: #3d2b1f;
+      margin-top: 0;
+      margin-bottom:1.5rem;
+      color: #1a1a1a;
+      text-align:center;
+      font-size:2.5rem;
+      text-shadow:0 2px 4px rgba(255,255,255,0.8);
     }
+    
     p {
-      text-align: left;
-      line-height: 1.6;
+      line-height: 1.8;
+      margin-bottom:1.2rem;
+      color:#2c2c2c;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.05rem;
+    }
+
+    /* Footer */
+    footer{
+      position:relative;
+      padding:30px 20px;
+      background:rgba(255,255,255,0.2);
+      border-top:1px solid rgba(255,255,255,0.3);
+      color:#2c2c2c;
+      backdrop-filter:blur(8px);
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+      .content-card{padding:2rem 1.5rem}
+      h1{font-size:2rem}
+      img.logo{max-width:200px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/about.html" aria-current="page">About</a>
-    </nav>
+  <!-- Full-page background image -->
+  <div class="bg"></div>
+
+  <!-- Header matching homepage -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+        <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        <h1>Jake Duus</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a class="cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <img src="/images/logo-wood-engraved.png" alt="Jake Duus Logo" class="logo">
+  <main class="page">
+    <div class="container">
+      <div class="content-card">
+        <img src="assets/logo-wood-engraved.png" alt="Jake Duus Logo" class="logo" onerror="this.style.display='none'">
+        
+        <h1>About Me</h1>
+        
+        <p>Hey, I'm Jake Duus. I'm the Fleet and Grounds Manager at Trinity Bible College in Ellendale, North Dakota. Fancy title, I know. Really, it just means if it's got an engine or needs mowing, I'm the guy people call before it catches fire.</p>
 
-    <h1>About Me</h1>
+        <p>I'm also a part-time student at the college. Because apparently, I thought juggling classes, work, and real life sounded like fun. Before this gig, I served in the military, where I picked up a few useful skills like discipline, teamwork, and pretending instant coffee is drinkable.</p>
 
-Hey, I’m Jake Duus. I’m the Fleet and Grounds Manager at Trinity Bible College in Ellendale, North Dakota. Fancy title, I know. Really, it just means if it’s got an engine or needs mowing, I’m the guy people call before it catches fire.
+        <p>My faith keeps me grounded. I try to live by this line from Ecclesiastes: "Whatever your hand finds to do, do it with all your might." I take that seriously, whether I'm fixing a stubborn mower, helping a student, or running the grill like it's a mission.</p>
 
-I’m also a part-time student at the college. Because apparently, I thought juggling classes, work, and real life sounded like fun. Before this gig, I served in the military, where I picked up a few useful skills like discipline, teamwork, and pretending instant coffee is drinkable.
-
-My faith keeps me grounded. I try to live by this line from Ecclesiastes: “Whatever your hand finds to do, do it with all your might.” I take that seriously, whether I’m fixing a stubborn mower, helping a student, or running the grill like it’s a mission.
-
-When I’m off the clock, you’ll find me tinkering with cars, riding my motorcycle, wandering outside, or traveling with my wife. If the day ends with ribs on the grill, that’s what I call a good one.</p>
+        <p>When I'm off the clock, you'll find me tinkering with cars, riding my motorcycle, wandering outside, or traveling with my wife. If the day ends with ribs on the grill, that's what I call a good one.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <small>© 2025 Jake Duus</small>
+    <small>© 2025 Jake Duus | Built through chaos</small>
   </footer>
+
+  <script>
+    // Fallback logo handler
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+      else header.style.boxShadow = '';
+    });
+  </script>
 </body>
 </html>
