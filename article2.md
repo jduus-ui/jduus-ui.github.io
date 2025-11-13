@@ -1,7 +1,207 @@
-Ethics paper for AI #2  By Jacob Duus
-I have already had an instance this term when AI was not accurate. Very simply, I gave Chatgpt some information in the prompt for the about me assignment and website page. While it wasn’t too bad, there were details that I didn’t include in the prompt, and AI filled in those details for me. I literally copied and pasted the about me into Microsoft word, then I manually edited it. I suppose that I could have continued to edit it with AI, but I just felt like manually making those changes. Because I know for a fact that I did the final edits on it. And every work was mine. I used AI in the drafting process. But the final product was thoroughly gone through by me to ensure that it was accurate. 
-I have seen plenty of time when I have searched with google on the internet, and Google’s AI Gemini was not accurate at all. Now at this time it seems to be improving. But for the mean time, I will scroll down and see the actually search results. I can use AI to research things. But I will need to prompt it to use credible resources. And also cite the sources with the information it gave. I will also need to verify the information and the pertaining source. 
-From a Biblical stand point. Verifying your sources of information is a thing that requires wisdom and discernment. The book of Proverbs says a lot on that subject. Also testing. 1st John chapter 4 verse 1. “Beloved, do not believe every spirit, but test the spirits, whether they are of God; because many false prophets have gone out into the world.” Now 1st John is talking about the spiritual realm. But the principle and technique are the exact same in verifying information. The same technique to verify spirits, we can use to verify information. In the bible verse mentioned, you must first know God. Then when you are dealing with spirits, you will know which ones are of god. If the spirits do not align with God when tested, don’t listen to them. The exact same thing can be said about information. You must first know the subject you are presenting, then what information AI comes up with must align with that. Making sure that you are accurate with the information you give is being truthful. 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethics Paper for AI #2 - Jake Duus</title>
+  <style>
+    :root{
+      --accent:#6b3e20;
+      --accent-2:#8b5b34;
+      --max-width:1100px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff-body: Georgia, 'Times New Roman', Times, serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:#1a1a1a;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
 
-Sources cited: 
-The Holy Bible
+    /* === BACKGROUND IMAGE - Fixed and stretched === */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:url('assets/mountain-background.jpg') center/cover no-repeat fixed;
+      background-size: cover;
+    }
+
+    /* Header / nav - matching homepage */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(8px);background:rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.2)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.2);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px;color:#1a1a1a;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:#2c2c2c;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;text-shadow:none}
+    .nav-links a:hover{color:#000}
+
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh;padding-bottom:60px}
+    .container{max-width:800px;margin:0 auto;padding:40px 20px}
+
+    /* Article card - transparent with blur */
+    .article-card{
+      background:rgba(255,255,255,0.3);
+      padding:3rem 2.5rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    /* Typography */
+    .article-title {
+      margin:0 0 0.5rem 0;
+      color: #1a1a1a;
+      font-size:2.5rem;
+      line-height:1.2;
+      text-shadow:0 2px 4px rgba(255,255,255,0.8);
+      font-weight:700;
+    }
+    
+    .article-meta{
+      color:#2c2c2c;
+      font-style:italic;
+      margin-bottom:2rem;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:0.95rem;
+    }
+
+    article p {
+      line-height: 1.8;
+      margin-bottom:1.5rem;
+      color:#1a1a1a;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.1rem;
+      font-family:var(--ff-body);
+    }
+
+    /* Sources section */
+    .sources{
+      margin-top:2.5rem;
+      padding-top:1.5rem;
+      border-top:2px solid rgba(0,0,0,0.1);
+    }
+    .sources h3{
+      margin:0 0 0.5rem 0;
+      color:#1a1a1a;
+      font-size:1.2rem;
+    }
+    .sources p{
+      margin:0;
+      font-style:italic;
+    }
+
+    /* Back link */
+    .back-link{
+      display:inline-block;
+      margin-top:2rem;
+      padding:10px 18px;
+      background:rgba(255,255,255,0.4);
+      border-radius:8px;
+      color:#2c2c2c;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,0.3);
+      transition:all 0.2s;
+    }
+    .back-link:hover{
+      background:rgba(255,255,255,0.6);
+      color:#000;
+    }
+
+    /* Footer */
+    footer{
+      position:relative;
+      padding:30px 20px;
+      background:rgba(255,255,255,0.2);
+      border-top:1px solid rgba(255,255,255,0.3);
+      color:#2c2c2c;
+      backdrop-filter:blur(8px);
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+      .article-card{padding:2rem 1.5rem}
+      .article-title{font-size:1.8rem}
+      article p{font-size:1.05rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-page background image -->
+  <div class="bg"></div>
+
+  <!-- Header matching homepage -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+        <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        <h1>Jake Duus</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a class="cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="article-card">
+        <h1 class="article-title">Ethics Paper for AI #2</h1>
+        <p class="article-meta">Written Fall 2025 | By Jacob Duus</p>
+        
+        <article>
+          <p>I have already had an instance this term when AI was not accurate. Very simply, I gave ChatGPT some information in the prompt for the about me assignment and website page. While it wasn't too bad, there were details that I didn't include in the prompt, and AI filled in those details for me. I literally copied and pasted the about me into Microsoft Word, then I manually edited it. I suppose that I could have continued to edit it with AI, but I just felt like manually making those changes. Because I know for a fact that I did the final edits on it. And every word was mine. I used AI in the drafting process. But the final product was thoroughly gone through by me to ensure that it was accurate.</p>
+
+          <p>I have seen plenty of times when I have searched with Google on the internet, and Google's AI Gemini was not accurate at all. Now at this time it seems to be improving. But for the meantime, I will scroll down and see the actual search results. I can use AI to research things. But I will need to prompt it to use credible resources. And also cite the sources with the information it gave. I will also need to verify the information and the pertaining source.</p>
+
+          <p>From a Biblical standpoint, verifying your sources of information is a thing that requires wisdom and discernment. The book of Proverbs says a lot on that subject. Also testing. 1st John chapter 4 verse 1: "Beloved, do not believe every spirit, but test the spirits, whether they are of God; because many false prophets have gone out into the world." Now 1st John is talking about the spiritual realm. But the principle and technique are the exact same in verifying information. The same technique to verify spirits, we can use to verify information. In the Bible verse mentioned, you must first know God. Then when you are dealing with spirits, you will know which ones are of God. If the spirits do not align with God when tested, don't listen to them. The exact same thing can be said about information. You must first know the subject you are presenting, then what information AI comes up with must align with that. Making sure that you are accurate with the information you give is being truthful.</p>
+
+          <div class="sources">
+            <h3>Sources Cited:</h3>
+            <p>The Holy Bible</p>
+          </div>
+        </article>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <small>© 2025 Jake Duus | Built through chaos</small>
+  </footer>
+
+  <script>
+    // Fallback logo handler
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+      else header.style.boxShadow = '';
+    });
+  </script>
+</body>
+</html>
