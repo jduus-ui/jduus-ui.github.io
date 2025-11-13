@@ -1,8 +1,190 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>My First Article</title>
-<style>body{font-family:system-ui;max-width:900px;margin:2rem auto;padding:1rem;background:#fff;color:#111}a{color:#6b4b2f}</style></head><body>
-<h1>My First Article — Title Here</h1><p><em>Posted Oct 27, 2025</em></p><article><p>Artificial Intelligence and Biblical Principles By Jacob Duus
-Artificial Intelligence is becoming a very influential tool in modern life. AI is beginning to change how we as people work and live. As a Christian, I believe that AI itself is not inherently good or bad. It depends on the intentions of the people who use it. The Bible may not directly mention technology like AI, but it does provide principles that guide us and how we should approach it.
-One verse that stands out to me is Ecclesiastes 9:10, which says, “Whatever your hand finds to do, do it with all your might.” This verse encourages diligence, excellence, and effort in our work. Using AI can actually help us fulfill this command by enhancing our research and give ideas at an instantaneous speed. When used appropriately, AI can help us perform tasks more efficiently, make better decisions, and free up time for other tasks. I’d like to think of my life as an example. With just beginning this class, I can see how much faster I can get some tasks done. And then I can spend some more time with my wife and improve my marriage. I can also see a precaution to using AI in this regard. While it can enhance our task and product, it can also easily lead to laziness. I can easily see how instead of learning and being proficient in a skill, AI can possibly take away the time to form the skill and the intimate memories that come with learning it. 
-Chatgbt gave me this idea and insight. The Bible also teaches stewardship. In Genesis 1:28, God commands man to take care of creation. I am not a tree hugger by any means, but I do love God’s creation. Developing technology responsibly can be part of that stewardship. AI, when guided by moral and spiritual principles, can help solve real problems, such as predicting natural disasters. I can easily see how improving volcanic predictions can save countless lives around the globe. Also, with my current interest in conservation in North America. I can see how AI can aide in resolving the CWD issue we have in our deer, elk, and moose. 
-Another concern in my opinion. If humans begin to interact with AI more than with other humans, we risk losing our humanity and the deep connections we were created for. While this might not be a sin, it is something worth paying attention to. The Bible says, “Do not forsake the assembling of ourselves together...” God designed people to live in community, to talk, share, and learn from each other. If we allow technology to replace those relationships, we could become isolated and disconnected from the very thing that makes us human. Technology should never replace human or spiritual connection.
-In conclusion, I believe AI is not against Biblical principles. Like any tool, it depends on how it is used. If guided by good morals and intent, AI can help us live out the command to do all things with excellence, to do it “with all of our might.” And remembering that no technology can take the place of genuine human and spiritual connection..</p></article><p><a href="index.html">← Back to Home</a></p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My First Article - Jake Duus</title>
+  <style>
+    :root{
+      --accent:#6b3e20;
+      --accent-2:#8b5b34;
+      --max-width:1100px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff-body: Georgia, 'Times New Roman', Times, serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:#1a1a1a;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
+
+    /* === BACKGROUND IMAGE - Fixed and stretched === */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:url('assets/mountain-background.jpg') center/cover no-repeat fixed;
+      background-size: cover;
+    }
+
+    /* Header / nav - matching homepage */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(8px);background:rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.2)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.2);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px;color:#1a1a1a;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:#2c2c2c;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;text-shadow:none}
+    .nav-links a:hover{color:#000}
+
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh;padding-bottom:60px}
+    .container{max-width:800px;margin:0 auto;padding:40px 20px}
+
+    /* Article card - transparent with blur */
+    .article-card{
+      background:rgba(255,255,255,0.3);
+      padding:3rem 2.5rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    /* Typography */
+    .article-title {
+      margin:0 0 0.5rem 0;
+      color: #1a1a1a;
+      font-size:2.5rem;
+      line-height:1.2;
+      text-shadow:0 2px 4px rgba(255,255,255,0.8);
+      font-weight:700;
+    }
+    
+    .article-meta{
+      color:#2c2c2c;
+      font-style:italic;
+      margin-bottom:2rem;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:0.95rem;
+    }
+
+    article p {
+      line-height: 1.8;
+      margin-bottom:1.5rem;
+      color:#1a1a1a;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.1rem;
+      font-family:var(--ff-body);
+    }
+
+    /* Back link */
+    .back-link{
+      display:inline-block;
+      margin-top:2rem;
+      padding:10px 18px;
+      background:rgba(255,255,255,0.4);
+      border-radius:8px;
+      color:#2c2c2c;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,0.3);
+      transition:all 0.2s;
+    }
+    .back-link:hover{
+      background:rgba(255,255,255,0.6);
+      color:#000;
+    }
+
+    /* Footer */
+    footer{
+      position:relative;
+      padding:30px 20px;
+      background:rgba(255,255,255,0.2);
+      border-top:1px solid rgba(255,255,255,0.3);
+      color:#2c2c2c;
+      backdrop-filter:blur(8px);
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+      .article-card{padding:2rem 1.5rem}
+      .article-title{font-size:1.8rem}
+      article p{font-size:1.05rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-page background image -->
+  <div class="bg"></div>
+
+  <!-- Header matching homepage -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+        <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        <h1>Jake Duus</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a class="cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="article-card">
+        <h1 class="article-title">Artificial Intelligence and Biblical Principles</h1>
+        <p class="article-meta">Posted October 27, 2025 | By Jacob Duus</p>
+        
+        <article>
+          <p>Artificial Intelligence is becoming a very influential tool in modern life. AI is beginning to change how we as people work and live. As a Christian, I believe that AI itself is not inherently good or bad. It depends on the intentions of the people who use it. The Bible may not directly mention technology like AI, but it does provide principles that guide us and how we should approach it.</p>
+
+          <p>One verse that stands out to me is Ecclesiastes 9:10, which says, "Whatever your hand finds to do, do it with all your might." This verse encourages diligence, excellence, and effort in our work. Using AI can actually help us fulfill this command by enhancing our research and give ideas at an instantaneous speed. When used appropriately, AI can help us perform tasks more efficiently, make better decisions, and free up time for other tasks. I'd like to think of my life as an example. With just beginning this class, I can see how much faster I can get some tasks done. And then I can spend some more time with my wife and improve my marriage. I can also see a precaution to using AI in this regard. While it can enhance our task and product, it can also easily lead to laziness. I can easily see how instead of learning and being proficient in a skill, AI can possibly take away the time to form the skill and the intimate memories that come with learning it.</p>
+
+          <p>ChatGPT gave me this idea and insight. The Bible also teaches stewardship. In Genesis 1:28, God commands man to take care of creation. I am not a tree hugger by any means, but I do love God's creation. Developing technology responsibly can be part of that stewardship. AI, when guided by moral and spiritual principles, can help solve real problems, such as predicting natural disasters. I can easily see how improving volcanic predictions can save countless lives around the globe. Also, with my current interest in conservation in North America, I can see how AI can aide in resolving the CWD issue we have in our deer, elk, and moose.</p>
+
+          <p>Another concern in my opinion: If humans begin to interact with AI more than with other humans, we risk losing our humanity and the deep connections we were created for. While this might not be a sin, it is something worth paying attention to. The Bible says, "Do not forsake the assembling of ourselves together..." God designed people to live in community, to talk, share, and learn from each other. If we allow technology to replace those relationships, we could become isolated and disconnected from the very thing that makes us human. Technology should never replace human or spiritual connection.</p>
+
+          <p>In conclusion, I believe AI is not against Biblical principles. Like any tool, it depends on how it is used. If guided by good morals and intent, AI can help us live out the command to do all things with excellence, to do it "with all of our might." And remembering that no technology can take the place of genuine human and spiritual connection.</p>
+        </article>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <small>© 2025 Jake Duus | Built through chaos</small>
+  </footer>
+
+  <script>
+    // Fallback logo handler
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+      else header.style.boxShadow = '';
+    });
+  </script>
+</body>
+</html>
