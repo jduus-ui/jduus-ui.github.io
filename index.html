@@ -82,6 +82,18 @@
     .bio img{width:100%;border-radius:10px}
     .bio h3{color:#1a1a1a}
 
+    /* Contact links */
+    .contact-link{
+      color:#1a1a1a;
+      font-weight:600;
+      text-decoration:underline;
+      transition: all 0.3s ease;
+    }
+    .contact-link:hover{
+      color:var(--accent);
+      transform: translateX(4px);
+      display: inline-block;
+    }
     /* Footer */
     footer{padding:30px 20px;background:rgba(255,255,255,0.2);border-top:1px solid rgba(255,255,255,0.3);color:var(--muted);backdrop-filter:blur(8px)}
     footer .inner{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
@@ -288,7 +300,7 @@
     <!-- CONTACT (anchor to footer) -->
     <section id="contact" class="container section" style="display:none">
       <h3 style="color:#1a1a1a;text-shadow:0 1px 2px rgba(255,255,255,0.8)">Contact</h3>
-      <p class="muted">LinkedIn: <a href="mailto:">Live link coming soon</a></p>
+<p class="muted">LinkedIn: <a class="contact-link" href="https://www.linkedin.com/in/jake-duus-213370391" target="_blank" rel="noopener noreferrer">Connect with Jake Duus</a></p>
     </section>
 
   </main>
