@@ -1,53 +1,270 @@
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-          
-  <a href="Artifact1.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="Artifact 1" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 1</h3>
-      <p class="muted">CWD INFORMATION.</p>
-    </article>
-  </a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artifacts - Jake Duus</title>
+  <style>
+    :root{
+      --accent:#6b3e20;
+      --accent-2:#8b5b34;
+      --max-width:1100px;
+      --ff-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --ff-body: Georgia, 'Times New Roman', Times, serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:#1a1a1a;font-family:var(--ff-heading);}
+    a{color:inherit;text-decoration:none}
 
-  <a href="Artifact2.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60" alt="Artifact 2" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 2</h3>
-      <p class="muted">Venison Receipe</p>
-    </article>
-  </a>
+    /* === BACKGROUND IMAGE - Fixed and stretched === */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:url('assets/mountain-background.jpg') center/cover no-repeat fixed;
+      background-size: cover;
+    }
 
-  <a href="vehicle-signout.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=60" alt="Vehicle Sign Out" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 3</h3>
-      <p class="muted">Vehicle Sign Out Sheet - Interactive table with search and sort functionality.</p>
-    </article>
-  </a>
+    /* Header / nav - matching homepage */
+    .site-header{position:fixed;left:0;right:0;top:0;z-index:999;backdrop-filter: blur(8px);background:rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.2)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:64px;height:64px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,0.2);padding:6px}
+    .brand .logo-fallback{width:64px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#6b3e20,#8b5b34);font-weight:800;color:white;font-size:18px}
+    .brand h1{font-size:18px;margin:0;letter-spacing:1px;color:#1a1a1a;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;font-weight:600;color:#2c2c2c;text-shadow:0 1px 2px rgba(255,255,255,0.5)}
+    .nav-links a.cta{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;text-shadow:none}
+    .nav-links a:hover{color:#000}
 
-  <a href="Artifact4.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=60" alt="Coming Soon" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 4</h3>
-      <p class="muted">Coming Soon - New artifact will be uploaded here.</p>
-    </article>
-  </a>
+    /* Page container */
+    .page{padding-top:108px;min-height:100vh;padding-bottom:60px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:40px 20px}
 
-  <!-- === NEW ARTIFACT 5 === -->
-  <a href="Artifact5.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=800&q=60" alt="Artifact 5" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 5</h3>
-      <p class="muted">New artifact added to the collection.</p>
-    </article>
-  </a>
+    /* Hero section */
+    .hero{
+      background:rgba(255,255,255,0.3);
+      padding:3rem 2.5rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.1);
+      margin-bottom:40px;
+    }
+    .hero h2{
+      margin:0 0 0.5rem 0;
+      color: #1a1a1a;
+      font-size:2.5rem;
+      line-height:1.2;
+      text-shadow:0 2px 4px rgba(255,255,255,0.8);
+      font-weight:700;
+    }
+    .hero p{
+      color:#2c2c2c;
+      margin:0;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.1rem;
+      font-family:var(--ff-body);
+    }
 
-  <!-- === NEW ARTIFACT 6 === -->
-  <a href="Artifact6.html">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60" alt="Artifact 6" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px">
-      <h3>Artifact 6</h3>
-      <p class="muted">New artifact added to the collection.</p>
-    </article>
-  </a>
+    /* Artifact cards grid */
+    .artifacts-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:24px;
+      margin-bottom:40px;
+    }
 
-</div>
+    .card{
+      background:rgba(255,255,255,0.3);
+      padding:0;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+    .card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+    }
+    .card-content{
+      padding:18px;
+    }
+    .card h3{
+      margin:0 0 8px 0;
+      color:#1a1a1a;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.3rem;
+    }
+    .card p{
+      margin:0;
+      color:#2c2c2c;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:0.95rem;
+      line-height:1.5;
+    }
+
+    /* About section */
+    .about-section{
+      background:rgba(255,255,255,0.3);
+      padding:2rem;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.4);
+      backdrop-filter:blur(12px);
+      box-shadow:0 4px 16px rgba(0,0,0,0.1);
+    }
+    .about-section h3{
+      margin:0 0 1rem 0;
+      color:#1a1a1a;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.5rem;
+    }
+    .about-section p{
+      margin:0;
+      color:#2c2c2c;
+      text-shadow:0 1px 2px rgba(255,255,255,0.6);
+      font-size:1.05rem;
+      line-height:1.7;
+      font-family:var(--ff-body);
+    }
+
+    /* Footer */
+    footer{
+      position:relative;
+      padding:30px 20px;
+      background:rgba(255,255,255,0.2);
+      border-top:1px solid rgba(255,255,255,0.3);
+      color:#2c2c2c;
+      backdrop-filter:blur(8px);
+      text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .brand img{width:52px;height:52px}
+      .nav-links{display:none}
+      .hero{padding:2rem 1.5rem}
+      .hero h2{font-size:1.8rem}
+      .artifacts-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-page background image -->
+  <div class="bg"></div>
+
+  <!-- Header matching homepage -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/jake-duus-logo.png" alt="Jake Duus logo" id="site-logo" onerror="handleLogoError(this)" />
+        <div class="logo-fallback" id="logo-fallback" style="display:none">JD</div>
+        <h1>Jake Duus</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#articles">Articles</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a class="cta" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="hero">
+        <h2>Artifacts</h2>
+        <p>Projects, tools, and creative works worth sharing.</p>
+      </div>
+
+      <!-- Artifacts Grid -->
+      <div class="artifacts-grid">
+        
+        <a href="Artifact1.html">
+          <article class="card">
+            <img src="placeholder-tech.jpg" alt="Artifact 1">
+            <div class="card-content">
+              <h3>Artifact 1</h3>
+              <p>CWD INFORMATION.</p>
+            </div>
+          </article>
+        </a>
+
+        <a href="Artifact2.html">
+          <article class="card">
+            <img src="placeholder-space.jpg" alt="Artifact 2">
+            <div class="card-content">
+              <h3>Artifact 2</h3>
+              <p>Venison Recipe</p>
+            </div>
+          </article>
+        </a>
+
+        <a href="vehicle-signout.html">
+          <article class="card">
+            <img src="placeholder-car.jpg" alt="Vehicle Sign Out">
+            <div class="card-content">
+              <h3>Artifact 3</h3>
+              <p>Vehicle Sign Out Sheet - Interactive table with search and sort functionality.</p>
+            </div>
+          </article>
+        </a>
+
+        <a href="Artifact4.html">
+          <article class="card">
+            <img src="placeholder-tech2.jpg" alt="Coming Soon">
+            <div class="card-content">
+              <h3>Artifact 4</h3>
+              <p>Coming Soon - New artifact will be uploaded here.</p>
+            </div>
+          </article>
+        </a>
+
+      </div>
+
+      <!-- About Artifacts Section -->
+      <div class="about-section">
+        <h3>About Artifacts</h3>
+        <p>This section showcases various projects, tools, and creative works. Each artifact represents a unique contribution or experiment worth sharing. Click on any card above to explore the full artifact.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <small>© 2025 Jake Duus | Built through chaos</small>
+  </footer>
+
+  <script>
+    // Fallback logo handler
+    function handleLogoError(img){
+      try{
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192"><rect width="100%" height="100%" fill="%236b3e20"/><text x="50%" y="55%" font-family="Arial, Helvetica, sans-serif" font-size="72" fill="white" text-anchor="middle" font-weight="700">JD</text></svg>';
+        img.onerror = null;
+        img.style.background = 'none';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      }catch(e){
+        var fb = document.getElementById('logo-fallback');
+        if(fb){fb.style.display='flex'; if(img.parentNode) img.parentNode.removeChild(img)}
+      }
+    }
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', ()=>{
+      const header = document.querySelector('.site-header');
+      if(window.scrollY>20) header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+      else header.style.boxShadow = '';
+    });
+  </script>
+</body>
+</html>
